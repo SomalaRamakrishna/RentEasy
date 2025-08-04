@@ -1,0 +1,56 @@
+.admin-payments {
+    padding: 2rem;
+    background-color: #f8fafd;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-payments h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.payment-table thead {
+    background-color: #2e86de;
+    color: white;
+}
+
+.payment-table th,
+.payment-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-table tr:hover {
+    background-color: #f0f8ff;
+}
+
+.status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.status.success {
+    color: #2ecc71;
+}
+
+.status.pending {
+    color: #f39c12;
+}
+
+.status.failed {
+    color: #e74c3c;
+}

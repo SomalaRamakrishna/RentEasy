@@ -1,0 +1,114 @@
+.manage-owners-container {
+    padding: 2rem;
+    margin-left: 0px;
+    /* Match this exactly with your sidebar width */
+    background-color: #f5f7fb;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    /* Avoid overflow */
+    overflow-x: hidden;
+}
+
+.manage-owners-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.owners-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+}
+
+.owners-table th,
+.owners-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ececec;
+    font-size: 0.95rem;
+}
+
+.owners-table th {
+    background-color: #f0f2f5;
+    color: #34495e;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.owners-table tr:last-child td {
+    border-bottom: none;
+}
+
+.owners-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 6px 14px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* Optional animation for appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .manage-owners-container {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .owners-table th,
+    .owners-table td {
+        padding: 12px 14px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        margin-right: 4px;
+        padding: 4px 10px;
+    }
+}

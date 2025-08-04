@@ -1,0 +1,35 @@
+.not-found-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.not-found-page h1 {
+    font-size: 8rem;
+    color: #ff4757;
+}
+
+.not-found-page p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.go-home-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.go-home-button:hover {
+    background-color: #2980b9;
+}

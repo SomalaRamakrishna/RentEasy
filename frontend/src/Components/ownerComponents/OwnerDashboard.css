@@ -1,0 +1,66 @@
+.owner-dashboard {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #444;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    border-left: 1px solid #eee;
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.welcome h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 16px;
+    color: #666;
+}

@@ -1,0 +1,172 @@
+/* Base Styling */
+.view-house-page {
+    width: 100%;
+    background-color: #f0f2f5;
+   
+}
+
+.view-house-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.house-title {
+    font-size: 2.5rem;
+    color: #027a98;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Image Slider */
+.image-slider {
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.house-photo {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* House Details Table */
+.house-details {
+    margin-top: 2rem;
+}
+
+.house-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fafafa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+}
+
+.house-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 1rem;
+    color: #444;
+}
+
+.house-table .label {
+    font-weight: 600;
+    color: #1e293b;
+    background-color: #f1f5f9;
+    width: 25%;
+}
+
+/* Geolocation */
+.map-container {
+    margin: 2rem 0;
+}
+
+.map-container h3 {
+    font-size: 1.4rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+/* Booking Button */
+.pay-button {
+    display: block;
+    width: fit-content;
+    padding: 14px 28px;
+    margin: 3rem auto 2rem auto;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0, 114, 255, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pay-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 114, 255, 0.35);
+}
+
+/* Owner Contact */
+.owner-info {
+    background: #e8f0ff;
+    border-left: 6px solid #0072ff;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+}
+
+.owner-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #1d4ed8;
+}
+
+.owner-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #1e293b;
+}
+
+/* Availability Status */
+.availability-status {
+    margin-top: 2rem;
+    background-color: #fdf6ec;
+    border-left: 5px solid #f59e0b;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+}
+
+.availability-status h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #c2410c;
+}
+
+.availability-status p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #15803d;
+}
+
+.availability-status p.booked {
+    color: #b91c1c;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .house-title {
+        font-size: 1.6rem;
+    }
+
+    .house-photo {
+        height: 300px;
+    }
+
+    .house-table td {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .pay-button {
+        width: 100%;
+        border-radius: 12px;
+        margin: 2rem 0;
+    }
+
+    .owner-info,
+    .availability-status {
+        padding: 1.2rem 1.5rem;
+    }
+}

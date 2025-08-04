@@ -1,0 +1,62 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.view-house-modal {
+    background: #fff;
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.image-gallery img {
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.owner-info,
+.location-info {
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    background: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

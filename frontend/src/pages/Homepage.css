@@ -1,0 +1,74 @@
+/* HomePage.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+.home-container {
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.home-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+}
+
+.home-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 16px;
+}
+
+.home-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.home-btn {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.home-btn.primary {
+    background-color: #2563eb;
+    color: white;
+}
+
+.home-btn.primary:hover {
+    background-color: #1e3a8a;
+}
+
+.home-btn.secondary {
+    background-color: #f1f5f9;
+    color: #2563eb;
+    border: 1px solid #cbd5e1;
+}
+
+.home-btn.secondary:hover {
+    background-color: #e2e8f0;
+}

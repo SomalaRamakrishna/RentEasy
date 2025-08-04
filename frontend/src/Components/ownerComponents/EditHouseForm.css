@@ -1,0 +1,106 @@
+.edit-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.edit-form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.edit-house-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-house-form label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.edit-house-form input,
+.edit-house-form textarea {
+    margin-bottom: 20px;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+    color: #333;
+}
+
+.edit-house-form input[type="file"] {
+    background: #fff;
+}
+
+.image-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.image-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.edit-house-form button {
+    padding: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-house-form button[type='submit'] {
+    background-color: #28a745;
+}
+
+.edit-house-form .cancel-btn {
+    background-color: #dc3545;
+    margin-top: 10px;
+}
+.edit-form-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.edit-house-form input,
+.edit-house-form textarea {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    color: #e11d48;
+    /* Soft red on hover */
+}

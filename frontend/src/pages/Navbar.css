@@ -1,0 +1,67 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* Ensures left and right sections are spaced */
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Left side */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Right side */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Logo */
+.navbar-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3f51b5;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo::before {
+    content: "🏠";
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+/* Username */
+.navbar-username {
+    font-size: 17px;
+    color: #3f51b5;
+}
+
+/* Logout Button */
+.logout-button {
+    padding: 8px 18px;
+    background-color: #f44336;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}
