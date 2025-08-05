@@ -19,7 +19,7 @@ const DashboardPage = () => {
   
     const fetchProperties = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/user/houses", {
+        const res = await axios.get("https://renteasy-84kh.onrender.com/api/user/houses", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

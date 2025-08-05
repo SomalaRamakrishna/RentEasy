@@ -21,7 +21,7 @@ const Settings = () => {
     const fetchOwner = async () => {
       console.log("Fetching owner details for user ID:", userId);
       try {
-        const res = await axios.get(`http://localhost:5000/api/owner/get-owner-details/${userId}`, {
+        const res = await axios.get(`https://renteasy-84kh.onrender.com/api/owner/get-owner-details/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -86,7 +86,7 @@ const Settings = () => {
       }
 
     const response = await axios.put(
-      `http://localhost:5000/api/owner/edit-owner-details/${userId}`,
+      `https://renteasy-84kh.onrender.com/api/owner/edit-owner-details/${userId}`,
       data,
       {
         headers: {

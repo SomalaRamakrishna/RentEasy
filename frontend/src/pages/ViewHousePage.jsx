@@ -31,7 +31,7 @@ const fetchHouse = async () => {
     /* const user = JSON.parse(localStorage.getItem('user')); */ // Parse the JSON string
     
 
-    const response = await axios.get(`http://localhost:5000/api/user/house/${id}`, {
+    const response = await axios.get(`https://renteasy-84kh.onrender.com/api/user/house/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -77,7 +77,7 @@ const handleBooking = async () => {
 
     // Fetch order details from the backend
     const { data } = await axios.post(
-      "http://localhost:5000/api/payment",
+      "https://renteasy-84kh.onrender.com/api/payment",
       { amount: 2 }, // Amount in INR
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -92,7 +92,7 @@ const handleBooking = async () => {
       order_id: data.id,
       handler: async (response) => {
           // Step 3: Verify Payment
-          const verifyRes = await axios.post("http://localhost:5000/api/payment/verify-payment", {
+          const verifyRes = await axios.post("https://renteasy-84kh.onrender.com/api/payment/verify-payment", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,

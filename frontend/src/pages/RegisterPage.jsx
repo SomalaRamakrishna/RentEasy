@@ -22,7 +22,7 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post('https://renteasy-84kh.onrender.com/api/auth/register', formData);
       toast.success(res.data.message || 'Registration successful!');
       setFormData({ name: '', email: '', password: '', role: 'tenant' });
       navigate('/login');

@@ -8,7 +8,7 @@ const ViewPayments = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/payments', {
+        const res = await axios.get('https://renteasy-84kh.onrender.com/api/admin/payments', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

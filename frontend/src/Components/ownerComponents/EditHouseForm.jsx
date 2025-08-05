@@ -21,7 +21,7 @@ const EditHouseForm = ({ houseId, onClose, onUpdated }) => {
  useEffect(() => {
   const fetchHouse = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/owner/house/${houseId}`, {
+      const response = await axios.get(`https://renteasy-84kh.onrender.com/api/owner/house/${houseId}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -113,7 +113,7 @@ const EditHouseForm = ({ houseId, onClose, onUpdated }) => {
   });
    // console.log("updatedData", updatedData);
     try {
-      await axios.put(`http://localhost:5000/api/owner/edit-house/${houseId}`, updatedData, {
+      await axios.put(`https://renteasy-84kh.onrender.com/api/owner/edit-house/${houseId}`, updatedData, {
         headers: { 'Content-Type': 'multipart/form-data' ,
           Authorization: `Bearer ${localStorage.getItem('token')}`  
         },

@@ -9,7 +9,7 @@ const ManageOwners = () => {
   // Fetch owners from backend
   const fetchOwners = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/owners', {
+      const response = await axios.get('https://renteasy-84kh.onrender.com/api/admin/owners', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

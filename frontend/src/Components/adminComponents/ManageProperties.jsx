@@ -8,7 +8,7 @@ const ManageProperties = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/properties', {
+      const response = await axios.get('https://renteasy-84kh.onrender.com/api/admin/properties', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

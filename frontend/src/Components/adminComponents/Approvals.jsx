@@ -8,7 +8,7 @@ const Approvals = () => {
   useEffect(() => {
     const fetchApprovals = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/pending-owners', {
+        const response = await axios.get('https://renteasy-84kh.onrender.com/api/admin/pending-owners', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -24,7 +24,7 @@ const Approvals = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/approve-owner/${id}`, {}, {
+      await axios.put(`https://renteasy-84kh.onrender.com/api/admin/approve-owner/${id}`, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -38,7 +38,7 @@ const Approvals = () => {
 
   const handleReject = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/reject-owner/${id}`, {
+      await axios.delete(`https://renteasy-84kh.onrender.com/api/admin/reject-owner/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

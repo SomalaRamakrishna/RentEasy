@@ -8,7 +8,7 @@ const ManageUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/users', {
+        const res = await axios.get('https://renteasy-84kh.onrender.com/api/admin/users', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

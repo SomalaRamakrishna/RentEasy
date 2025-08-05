@@ -33,7 +33,7 @@ const PropertiesList = ({ properties,fetchProperties }) => {
 
   const handleDelete = async (houseId) => {
     try {
-        const response =axios.delete(`http://localhost:5000/api/owner/delete-house/${houseId}`,
+        const response =axios.delete(`https://renteasy-84kh.onrender.com/api/owner/delete-house/${houseId}`,
         {
             headers: {
                 'Content-Type': 'application/json',

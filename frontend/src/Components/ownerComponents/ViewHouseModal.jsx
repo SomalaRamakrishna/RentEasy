@@ -9,7 +9,7 @@ const ViewHouseModal = ({ houseId, onClose }) => {
   useEffect(() => {
     const fetchHouse = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/owner/house/${houseId}`, {
+        const res = await axios.get(`https://renteasy-84kh.onrender.com/api/owner/house/${houseId}`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,

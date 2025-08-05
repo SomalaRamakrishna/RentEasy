@@ -69,7 +69,7 @@ const AddHouseForm = ({fetchProperties}) => {
       }
 
      
-      const res = await axios.post('http://localhost:5000/api/owner/add-house',formData, {
+      const res = await axios.post('https://renteasy-84kh.onrender.com/api/owner/add-house',formData, {
         headers: {
           Authorization: `Bearer ${token}`,
            'Content-Type': 'multipart/form-data',

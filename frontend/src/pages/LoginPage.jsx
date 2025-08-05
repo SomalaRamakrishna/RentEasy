@@ -19,7 +19,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post('https://renteasy-84kh.onrender.com/api/auth/login', formData);
       toast.success(res.data.message || 'Login successful!');
       console.log(res.data);
       localStorage.setItem('user', JSON.stringify(res.data.user));
