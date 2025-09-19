@@ -4,6 +4,7 @@ const {
   getAllUsers,
   getAllProperties,
   getAllPayments,
+  getStats,
   deleteUser,
   banUser,
   getAllOwners,
@@ -21,6 +22,7 @@ router.get("/properties", getAllProperties);
 router.get("/payments", getAllPayments);
 router.delete("/user/:id",  deleteUser);
 router.put("/user/:id/ban",  banUser);
+router.get('/stats', getStats);
 
 router.get('/pending-owners', getPendingOwners);
 router.put('/approve-owner/:id',  approveOwner);

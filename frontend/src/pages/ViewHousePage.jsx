@@ -31,7 +31,7 @@ const fetchHouse = async () => {
     /* const user = JSON.parse(localStorage.getItem('user')); */ // Parse the JSON string
     
 
-    const response = await axios.get(`https://renteasy-84kh.onrender.com/api/user/house/${id}`, {
+    const response = await axios.get(`http://localhost:5000/api/user/house/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -77,7 +77,7 @@ const handleBooking = async () => {
 
     // Fetch order details from the backend
     const { data } = await axios.post(
-      "https://renteasy-84kh.onrender.com/api/payment",
+      "http://localhost:5000/api/payment",
       { amount: 2 }, // Amount in INR
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -92,7 +92,7 @@ const handleBooking = async () => {
       order_id: data.id,
       handler: async (response) => {
           // Step 3: Verify Payment
-          const verifyRes = await axios.post("https://renteasy-84kh.onrender.com/api/payment/verify-payment", {
+          const verifyRes = await axios.post("http://localhost:5000/api/payment/verify-payment", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,
@@ -143,30 +143,63 @@ const handleBooking = async () => {
                 )}
               </div>
 
-              <div className="house-details">
-                  <table className="house-table">
-                    <tbody>
-                      <tr><td className="label">Type</td><td>{house.propertyType}</td></tr>
-                      <tr><td className="label">Rooms</td><td>{house.rooms}</td></tr>
-                      <tr><td className="label">Bathrooms</td><td>{house.bathrooms}</td></tr>
-                      <tr><td className="label">Floor</td><td>{house.floor} / {house.totalFloors}</td></tr>
-                      <tr><td className="label">Facing</td><td>{house.facing}</td></tr>
-                      <tr><td className="label">Furnished</td><td>{house.furnished === "true" ? "Yes" : "No"}</td></tr>
-                      <tr><td className="label">Price</td><td>₹{house.price}</td></tr>
-                      <tr><td className="label">Advance</td><td>₹{house.advance}</td></tr>
-                      <tr><td className="label">Status</td><td>{house.bookingStatus}</td></tr>
-                      <tr><td className="label">Available From</td><td>{new Date(house.availableFrom).toLocaleDateString()}</td></tr>
-                      <tr><td className="label">Area</td><td>{house.area} sq.ft</td></tr>
-                      <tr><td className="label">Description</td><td>{house.description}</td></tr>
-                      <tr><td className="label">Amenities</td>
-                        <td>{house.amenities?.length > 0 ? house.amenities.join(", ") : "Not specified"}</td>
-                      </tr>
-                      <tr><td className="label">Location</td>
-                        <td>Lat: {house.location?.lat}, Lng: {house.location?.lng}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              {/* House Details */}
+              {/* House Details (Table Layout) */}
+                  <section className="house-section">
+                    <h3>Property Details</h3>
+                    <table className="house-details-table">
+                      <thead>
+                        <tr>
+                          <th className="highlight">Feature</th>
+                          <th className="highlight">Details</th>
+                          <th className="highlight">Feature</th>
+                          <th className="highlight">Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Type</td>
+                          <td>{house.propertyType}</td>
+                          <td>Rooms</td>
+                          <td>{house.rooms}</td>
+                        </tr>
+                        <tr>
+                          <td>Bathrooms</td>
+                          <td>{house.bathrooms}</td>
+                          <td>Floor</td>
+                          <td>{house.floor} / {house.totalFloors}</td>
+                        </tr>
+                        <tr>
+                          <td>Facing</td>
+                          <td>{house.facing}</td>
+                          <td>Furnished</td>
+                          <td>{house.furnished === "true" ? "Yes" : "No"}</td>
+                        </tr>
+                        <tr>
+                          <td className="highlight2">Price</td>
+                          <td className="highlight2">₹{house.price}</td>
+                          <td className="highlight2">Advance</td>
+                          <td className="highlight2">₹{house.advance}</td>
+                        </tr>
+                        <tr>
+                          <td>Available From</td>
+                          <td>{new Date(house.availableFrom).toLocaleDateString()}</td>
+                          <td>Area</td>
+                          <td>{house.area} sq.ft</td>
+                        </tr>
+                        <tr>
+                          <td>Description</td>
+                          <td colSpan="3">{house.description}</td>
+                        </tr>
+                        <tr>
+                          <td>Amenities</td>
+                          <td colSpan="3">{house.amenities?.length > 0 ? house.amenities.join(", ") : "Not specified"}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+
+
 
                 <div className="map-container">
                   <h3>Geolocation</h3>

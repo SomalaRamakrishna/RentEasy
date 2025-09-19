@@ -1,6 +1,7 @@
 const UserModel = require('../models/UserModel'); // adjust path as needed
 const Property = require('../models/PropertyModel'); // adjust path
 const Payment = require('../models/Payment'); // adjust path
+const PropertyModel = require('../models/PropertyModel');
 
 // ✅ Get all users
 const getAllUsers = async (req, res) => {
@@ -56,13 +57,14 @@ const deleteUser = async (req, res) => {
   const userId = req.params.id;
 
   try {
-    const deletedUser = await UserModel.findByIdAndDelete(userId);
-    if (!deletedUser) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
+    const user = await UserModel.findById(userId);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    console.log('Deleting user:', user);
+    await UserModel.findByIdAndDelete(userId);
+    await PropertyModel.updateMany({ owner: userId }, { isAvailable: false });
     res.status(200).json({ message: 'User deleted successfully' });
-  } catch (err) {
+  }
+  catch (err) {
     console.error('Error deleting user:', err);
     res.status(500).json({ error: 'Failed to delete user' });
   }
@@ -107,10 +109,26 @@ const  approveOwner = async (req, res) => {
 
 const rejectOwner = async (req, res) => {
   try {
-    await User.findByIdAndDelete(req.params.id);
+    console.log('Rejecting owner with ID:', req.params.id);
+    console.log("property Details:", await Property.find({ owner: req.params.id }));
+    await UserModel.findByIdAndDelete(req.params.id);
+    await PropertyModel.deleteMany({ owner: req.params.id });
     res.status(200).json({ message: 'Owner rejected and removed' });
   } catch (err) {
     res.status(500).json({ error: 'Rejection failed' });
+  }
+};
+
+const getStats = async (req, res) => {
+  try {
+    const totalProperties = await PropertyModel.countDocuments();
+    const totalUsers = await UserModel.countDocuments({ role: 'tenant' });
+    const totalOwners = await UserModel.countDocuments({ role: 'owner' });
+    const totalCities = await PropertyModel.distinct('location.city').then(cities => cities.length);
+    res.status(200).json({ totalProperties, totalUsers, totalOwners, totalCities });
+  } catch (err) {
+    console.error('Error fetching stats:', err);
+    res.status(500).json({ error: 'Failed to fetch stats' });
   }
 };
 
@@ -120,6 +138,7 @@ module.exports = {
   getAllOwners,
   getAllProperties,
     getAllPayments,
+    getStats,
     deleteUser,
     banUser,
 

@@ -11,12 +11,13 @@ const {userVerify} = require('../middleware/userVerify');
 
 
 // Profile
-/* router.get('/profile', verify, getProfile);
-router.put('/profile', verify, updateProfile); */
+router.get('/profile', userVerify, getProfile);
+//router.put('/profile', userVerify, updateProfile); 
 
 // House Browsing
 router.get('/houses', userVerify, getAvailableHouses);
 router.get('/house/:id', userVerify, viewHouseDetails);
+
 
 // Payments 
 /* router.post('/payment/:houseId', verify, makePayment);  // Pay advance

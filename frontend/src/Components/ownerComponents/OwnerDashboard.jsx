@@ -5,15 +5,33 @@ import AddProperty from './AddHouseForm';
 import Settings from './Settings';
 import Payments from './Payments';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const OwnerDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [properties, setProperties] = useState([]);
+  const [ownerDetails, setOwnerDetails] = useState(null);
+  const user=localStorage.getItem('user');
+  const userId= user ? JSON.parse(user).id : null;
+   const navigate = useNavigate();
 
+  const fetchownerDetails = async () => {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/owner/get-owner-details/${userId}`, { 
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      console.log("owner details",res.data);
+      setOwnerDetails(res.data);
+    } catch (error) {
+      console.error("Error fetching owner details:", error);
+    } 
+  };
 
   const fetchProperties = async () => {
     try {
-      const res = await axios.get("https://renteasy-84kh.onrender.com/api/owner/my-houses", {
+      const res = await axios.get("http://localhost:5000/api/owner/my-houses", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -27,7 +45,14 @@ const OwnerDashboard = () => {
 
   useEffect(() => {
     fetchProperties();
+    fetchownerDetails();
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
 
   const renderContent = () => {
@@ -42,7 +67,7 @@ const OwnerDashboard = () => {
         return <Payments />;
       default:
         return <div className="welcome">
-          <h2>Welcome, Owner!</h2>
+          <h2>Welcome, {ownerDetails?.name}</h2>
           <p>Manage your rental listings, add new properties, and control your settings from here.</p>
         </div>;
     }
@@ -84,6 +109,10 @@ const OwnerDashboard = () => {
             Settings
           </li>
         </ul>
+        {/* Logout button */}
+        <button className="logout-btn" onClick={handleLogout}>
+          🚪 Logout
+        </button>
       </aside>
       <main className="main-content">{renderContent()}</main>
       

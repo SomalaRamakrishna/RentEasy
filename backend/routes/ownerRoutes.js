@@ -24,6 +24,7 @@ router.get('/house/:id', verify, viewHouse);
 router.delete('/delete-house/:id', verify, deleteHouse);
  router.put('/edit-house/:id', verify,upload.array("images",5), editHouse);
  router.put('/edit-owner-details/:id', verify,upload.array("images",5),editOwnerDetails);
+ 
 /*
 router.get('/bookings/:houseId', verify, getBookingsForHouse);
 router.get('/payments', verify, getPayments); */

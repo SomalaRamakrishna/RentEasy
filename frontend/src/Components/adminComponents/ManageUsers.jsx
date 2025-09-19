@@ -1,14 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './ManageUsers.css';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
 
+  const deleteUser = async (userId) => {
+    try {
+      const response=await axios.delete(`http://localhost:5000/api/admin/user/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      toast.success('User deleted successfully');
+      setUsers(users.filter((user) => user._id !== userId));
+
+    } catch (err) {
+      console.error('Error deleting user:', err);
+    }   
+  };
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('https://renteasy-84kh.onrender.com/api/admin/users', {
+        const res = await axios.get('http://localhost:5000/api/admin/users', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -31,7 +47,6 @@ const ManageUsers = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Verified</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -41,10 +56,8 @@ const ManageUsers = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
-              <td>{user.isVerified ? '✅ Yes' : '❌ No'}</td>
               <td>
-                <button className="edit-btn">Edit</button>
-                <button className="delete-btn">Delete</button>
+                <button className="delete-btn" onClick={()=>deleteUser(user._id)}>Delete</button>
               </td>
             </tr>
           ))}

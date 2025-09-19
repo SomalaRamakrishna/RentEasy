@@ -15,11 +15,11 @@ const DashboardPage = () => {
   const navigate = useNavigate();
 
   const [properties, setProperties] = useState([]);
-  
+  const [user, setUser] = useState(null);
   
     const fetchProperties = async () => {
       try {
-        const res = await axios.get("https://renteasy-84kh.onrender.com/api/user/houses", {
+        const res = await axios.get("http://localhost:5000/api/user/houses", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -31,8 +31,23 @@ const DashboardPage = () => {
       } 
     };
   
+    const fecthUserDetails = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/user/profile", {
+          headers: {  
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        console.log("feteched user details,,",res.data);  
+         setUser(res.data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
     useEffect(() => {
       fetchProperties();
+      fecthUserDetails();
     }, []);
 
   const logout = () => {
@@ -53,11 +68,12 @@ const DashboardPage = () => {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-        <Navbar username="Daimond" onLogout={logout} />
+        <Navbar username={user?.name} logout={logout} />
       </header>
-      <SearchPage properties={properties}/>
+      
 
       <div className="city-selector">
+        <SearchPage properties={properties}/>
         <label>Select City: </label>
         <select value={selectedCity} onChange={handleCityChange}>
           <option value="">--Choose--</option>
@@ -69,7 +85,8 @@ const DashboardPage = () => {
       
 
       <div className="houses-list">
-      <h2>Rental Houses in {selectedCity}</h2>
+      {/* <h2>Rental Houses in {selectedCity}</h2> */}
+       <h1>Recently added Rental Houses</h1>
       <div className="house-cards">
         {properties?.map((house, index) => (
           <div className="house-card" key={index}>

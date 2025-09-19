@@ -3,6 +3,7 @@ import './AddHouseForm.css';
 import LocationPicker from './LocationPicker';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 
 const AddHouseForm = ({fetchProperties}) => {
   const [title, setTitle] = useState('');
@@ -19,6 +20,8 @@ const AddHouseForm = ({fetchProperties}) => {
   const [availableFrom, setAvailableFrom] = useState('');
   const [images, setImages] = useState([]);
   const [location, setLocation] = useState(null);
+
+  
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -69,7 +72,7 @@ const AddHouseForm = ({fetchProperties}) => {
       }
 
      
-      const res = await axios.post('https://renteasy-84kh.onrender.com/api/owner/add-house',formData, {
+      const res = await axios.post('http://localhost:5000/api/owner/add-house',formData, {
         headers: {
           Authorization: `Bearer ${token}`,
            'Content-Type': 'multipart/form-data',
@@ -80,6 +83,21 @@ const AddHouseForm = ({fetchProperties}) => {
       toast.success('Property added successfully!');
       console.log("res:",res.data);
       fetchProperties();
+      setTitle('');
+      setPrice('');
+      setDescription('');
+      setPropertyType('');
+      setBedrooms('');
+      setBathrooms('');
+      setArea('');
+      setCity('');
+      setPincode('');
+      setLandmark('');
+      setFurnished(false);
+      setAvailableFrom('');
+      setImages([]);
+      setLocation(null);
+
     } catch (error) {
       console.error('Error adding property:', error);
       toast.error('Failed to add property. Please try again.');
